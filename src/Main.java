@@ -1,13 +1,40 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+    public class Main {
+        public static void main(String[] args) {
+            // Создаём экземпляр нашей HashMap для хранения логинов и ФИО пользователей
+            CustomHashMap<String, String> userMap = new CustomHashMap<>();
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+            System.out.println("=== Демонстрация работы CustomHashMap ===");
+
+            // Добавляем пользователей
+            System.out.println("1. Добавляем пользователей:");
+            userMap.put("ivanov", "Иван Иванов");
+            userMap.put("petrov", "Пётр Петров");
+            userMap.put("sidorov", "Сергей Сидоров");
+            userMap.printMap();
+
+            // Пытаемся добавить пользователя с уже существующим логином (должно обновить значение)
+            System.out.println("2. Обновляем пользователя с логином 'ivanov':");
+            userMap.put("ivanov", "Иван Иванович Иванов");
+            userMap.printMap();
+
+            // Получаем информацию о пользователе
+            System.out.println("3. Получаем информацию о пользователях:");
+            String user1 = userMap.get("ivanov");
+            String user2 = userMap.get("kuznetsov"); // Такого пользователя нет
+
+            System.out.println("Пользователь с логином 'ivanov': " + user1);
+            System.out.println("Пользователь с логином 'kuznetsov': " + user2);
+
+            // Удаляем пользователя
+            System.out.println("\n4. Удаляем пользователя с логином 'petrov':");
+            boolean isRemoved = userMap.remove("petrov");
+            System.out.println("Удаление прошло успешно: " + isRemoved);
+            userMap.printMap();
+
+            // Попытка удалить несуществующего пользователя
+            System.out.println("5. Попытка удалить пользователя с логином 'smirnov' (не существует):");
+            boolean isRemoved2 = userMap.remove("smirnov");
+            System.out.println("Удаление прошло успешно: " + isRemoved2);
+            userMap.printMap();
+        }
     }
-}
