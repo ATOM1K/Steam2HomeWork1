@@ -1,9 +1,9 @@
     public class Main {
         public static void main(String[] args) {
-            // Создаём экземпляр нашей HashMap для хранения логинов и ФИО пользователей
+            // Создаём экземпляр нашей HashMap для хранения логинов и ФИ пользователей
             CustomHashMap<String, String> userMap = new CustomHashMap<>();
 
-            System.out.println("=== Демонстрация работы CustomHashMap ===");
+            System.out.println("=== Демо работы CustomHashMap ===");
 
             // Добавляем пользователей
             System.out.println("1. Добавляем пользователей:");
@@ -26,7 +26,7 @@
             System.out.println("Пользователь с логином 'kuznetsov': " + user2);
 
             // Удаляем пользователя
-            System.out.println("\n4. Удаляем пользователя с логином 'petrov':");
+            System.out.println("4. Удаляем пользователя с логином 'petrov':");
             boolean isRemoved = userMap.remove("petrov");
             System.out.println("Удаление прошло успешно: " + isRemoved);
             userMap.printMap();

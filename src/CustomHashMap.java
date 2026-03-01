@@ -85,7 +85,7 @@ public class CustomHashMap<K, V> {
         System.out.println("\n--- Содержимое HashMap ---");
         for (LinkedList<Entry<K, V>> bucket : buckets) {
             for (Entry<K, V> entry : bucket) {
-                System.out.println("Логин: " + entry.key + " -> ФИО: " + entry.value);
+                System.out.println("Логин: " + entry.key + " -> ФИ: " + entry.value);
             }
         }
         System.out.println("Всего записей: " + size + "\n");
